@@ -329,11 +329,11 @@ Page 1
 #  Screenshots
 
 ## Home Page
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/home png.png)
 
 
 ## Generated Answer
-![Answer](screenshots/answer.png)
+![Answer](screenshots/answer png.png)
 
 
 
