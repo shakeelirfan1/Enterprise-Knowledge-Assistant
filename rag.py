@@ -7,37 +7,34 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
-# Embedding Model
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
-# Load Vector Database
 db = FAISS.load_local(
     "vector_db",
     embeddings,
     allow_dangerous_deserialization=True
 )
 
-# Gemini LLM
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-1.5-flash",
+    google_api_key=GOOGLE_API_KEY,
     temperature=0.2
 )
 
 
 def ask_question(question):
 
-    # Retrieve top 3 relevant chunks
-    docs_with_scores = db.similarity_search_with_score(question, k=3)
+    docs = db.similarity_search(question, k=3)
 
-    if len(docs_with_scores) == 0:
+    if not docs:
         return {
-            "answer": "No relevant information found.",
+            "answer": "I could not find this information in the uploaded documents.",
             "sources": []
         }
-
-    docs = [doc for doc, score in docs_with_scores]
 
     context = "\n\n".join(doc.page_content for doc in docs)
 
@@ -45,12 +42,10 @@ def ask_question(question):
 You are an Enterprise Knowledge Assistant.
 
 Rules:
-1. Answer ONLY using the provided context.
-2. Never make up information.
-3. If the answer is missing, reply:
-   "I could not find this information in the uploaded documents."
-4. Keep answers concise and professional.
-5. Use bullet points whenever appropriate.
+- Answer ONLY from the context.
+- Never make up information.
+- If unavailable, reply:
+'I could not find this information in the uploaded documents.'
 
 Context:
 {context}
@@ -64,6 +59,6 @@ Answer:
     response = llm.invoke(prompt)
 
     return {
-        "answer": response.content.strip(),
+        "answer": response.content,
         "sources": docs
     }
