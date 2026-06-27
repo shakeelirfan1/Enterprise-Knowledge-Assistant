@@ -365,6 +365,7 @@ Email: [shakeelirfan2005@gmail.com]
 
 GitHub: https://github.com/shakeelirfan1
 
+Live Demo:https://enterprise-knowledge-assistant-ntlkjp6otkf9fjbpdbpgsd.streamlit.app/
 
 #  License
 
