@@ -1,0 +1,69 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900">
+<style>
+.box{fill:#eef5ff;stroke:#2b6cb0;stroke-width:2;rx:10;ry:10}
+.title{font:700 18px Arial}
+.text{font:16px Arial}
+.small{font:14px Arial}
+.line{stroke:#444;stroke-width:2;fill:none;marker-end:url(#a)}
+</style>
+<defs>
+<marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+<path d="M0,0 L0,6 L9,3 z" fill="#444"/>
+</marker>
+</defs>
+
+<text x="390" y="35" class="title">Enterprise Knowledge Assistant - RAG Architecture</text>
+
+<rect class="box" x="70" y="80" width="220" height="60"/>
+<text x="110" y="117" class="text">PDF Documents</text>
+
+<rect class="box" x="70" y="180" width="220" height="60"/>
+<text x="110" y="217" class="text">PyPDF Loader</text>
+
+<rect class="box" x="70" y="280" width="220" height="60"/>
+<text x="95" y="317" class="text">Text Splitter</text>
+
+<rect class="box" x="70" y="380" width="220" height="60"/>
+<text x="82" y="417" class="text">HuggingFace Embeddings</text>
+
+<rect class="box" x="70" y="480" width="220" height="60"/>
+<text x="98" y="517" class="text">FAISS Vector DB</text>
+
+<line class="line" x1="180" y1="140" x2="180" y2="180"/>
+<line class="line" x1="180" y1="240" x2="180" y2="280"/>
+<line class="line" x1="180" y1="340" x2="180" y2="380"/>
+<line class="line" x1="180" y1="440" x2="180" y2="480"/>
+
+<rect class="box" x="520" y="80" width="250" height="60"/>
+<text x="610" y="117" class="text">User</text>
+
+<rect class="box" x="520" y="180" width="250" height="60"/>
+<text x="565" y="217" class="text">Streamlit Web UI</text>
+
+<rect class="box" x="520" y="280" width="250" height="60"/>
+<text x="560" y="317" class="text">User Question</text>
+
+<rect class="box" x="520" y="380" width="250" height="60"/>
+<text x="565" y="417" class="text">Semantic Retrieval</text>
+
+<rect class="box" x="520" y="500" width="250" height="60"/>
+<text x="560" y="537" class="text">Relevant Chunks</text>
+
+<rect class="box" x="520" y="620" width="250" height="60"/>
+<text x="565" y="657" class="text">Gemini 2.5 Flash</text>
+
+<rect class="box" x="520" y="740" width="250" height="60"/>
+<text x="540" y="777" class="text">Answer + Source Citation</text>
+
+<line class="line" x1="645" y1="140" x2="645" y2="180"/>
+<line class="line" x1="645" y1="240" x2="645" y2="280"/>
+<line class="line" x1="645" y1="340" x2="645" y2="380"/>
+<line class="line" x1="645" y1="440" x2="645" y2="500"/>
+<line class="line" x1="645" y1="560" x2="645" y2="620"/>
+<line class="line" x1="645" y1="680" x2="645" y2="740"/>
+
+<line class="line" x1="290" y1="510" x2="520" y2="410"/>
+<text x="330" y="450" class="small">Vector Search</text>
+
+</svg>
